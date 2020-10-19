@@ -799,7 +799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   variableJoystick: {fileID: 1122495396}
-  movementSpeed: 250
+  movementSpeed: 300
 --- !u!50 &1096365812
 Rigidbody2D:
   serializedVersion: 4
