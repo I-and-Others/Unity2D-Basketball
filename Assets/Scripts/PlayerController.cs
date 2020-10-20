@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {    
     public VariableJoystick variableJoystick;
-	[SerializeField] private float movementSpeed;
+	[SerializeField] public static float movementSpeed;
 	//[SerializeField] private Animator anim;
 	private Vector2 movementDirection;
 	private Rigidbody2D rb;
