@@ -14,8 +14,9 @@ public class RestartLevel : MonoBehaviour
 	}
 
 	void TaskOnClick(){
+
 		Time.timeScale = 1;
-        SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
 
 	}
 }
