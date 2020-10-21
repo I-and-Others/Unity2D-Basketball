@@ -10,7 +10,7 @@ public class ScoreManager : MonoBehaviour
     public int Score;
     public Text ScoreText;
     public AudioSource basketSesi;
-    public GameObject yourButton;
+    public GameObject restartButton;
     void Start()
     {
         basketSesi = GetComponent<AudioSource> ();
@@ -25,7 +25,7 @@ public class ScoreManager : MonoBehaviour
     void YouWin(){
         ScoreText.text = "You Win!";
         Time.timeScale = 0f;
-        yourButton.SetActive(true);
+        restartButton.SetActive(true);
     }
     private void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.tag =="Ball"){
