@@ -3455,13 +3455,28 @@ PrefabInstance:
       propertyPath: yourButton
       value: 
       objectReference: {fileID: 354889599}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 439858673945555608, guid: 829f29b393e28455ba0ba5f88c6782bd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 829f29b393e28455ba0ba5f88c6782bd, type: 3}
 --- !u!1 &439858674999952492 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 439858673945555588, guid: 829f29b393e28455ba0ba5f88c6782bd, type: 3}
   m_PrefabInstance: {fileID: 439858674999952491}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &439858674999952493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439858674999952492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1961340afd9040b69884ce8bd2e0d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  variableJoystick: {fileID: 1122495396}
+  movementSpeed: 350
 --- !u!1001 &808780813946924087
 PrefabInstance:
   m_ObjectHideFlags: 0
