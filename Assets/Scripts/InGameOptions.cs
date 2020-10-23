@@ -5,7 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class InGameOptions : MonoBehaviour
 {
-	private static float speedValue;
+	public float speedValue = 100f;
+	public float musicValue = 80f;
     public Slider playerSpeedSlider;
     public Text speedText;
     public GameObject[] inGameObjects;
@@ -13,7 +14,7 @@ public class InGameOptions : MonoBehaviour
     public AudioSource m_MyAudioSource;
     public Sprite isJoystickOnSprite;
     public Sprite isJoystickOffSprite;
-    public static bool isJoystick;
+    public  bool isJoystick = true;
     public GameObject joystick;
     public GameObject leftButton;
     public GameObject rightButton;
@@ -25,11 +26,17 @@ public class InGameOptions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-    	isJoystick = true;
+    	LoadSettings();
+    	//speedValue value burada değişirse bütün oyunda değişir
+
+    	//isJoystick = true;
     	inGameObjects = GameObject.FindGameObjectsWithTag("InGameObjects");
-        speedValue = playerSpeedSlider.value;
+        playerSpeedSlider.value = speedValue;
         PlayerController.movementSpeed = speedValue;
         speedText.text = speedValue.ToString();
+        musicVolumeSlider.value = musicValue;
+        m_MyAudioSource.volume = musicVolumeSlider.value;
+
     }
 
     // Update is called once per frame
@@ -51,7 +58,6 @@ public class InGameOptions : MonoBehaviour
         Time.timeScale = 1;
         inGameObjectsOn();
         if(isJoystick == false){
-        	Debug.Log("ifteki isJoystick değeri: "+isJoystick);
         	joystick.SetActive(false);
         	leftButton.SetActive(true);
         	rightButton.SetActive(true);
@@ -59,14 +65,17 @@ public class InGameOptions : MonoBehaviour
         	player.SetActive(true);
         }
         else{
-        	Debug.Log("elseteki isJoystick değeri: "+isJoystick);
         	joystick.SetActive(true);
         	leftButton.SetActive(false);
         	rightButton.SetActive(false);
         	scoreText.SetActive(true);
         	player.SetActive(true);
         }
-                 
+        SaveSettings();
+        Debug.Log("Ayarlardan çıkıldı.");
+        LoadSettings();
+        Debug.Log("Kaydedilen ayarlar uygulandı.");
+
     }
     public void SettingsOn()
     {
@@ -102,4 +111,16 @@ public class InGameOptions : MonoBehaviour
         	inGameObject.SetActive(false); 
         }    
     }
+
+    public void LoadSettings(){
+		GameData data = SaveSystem.LoadSettings();
+		speedValue = data.speedValue;
+		musicValue = data.musicValue;
+		isJoystick = data.isJoystick;
+		Debug.Log("Ayarlar yüklendi hacım.");
+	}
+	public void SaveSettings(){
+		SaveSystem.SaveData(this);
+		Debug.Log("Settings kaydedildi hacım.");
+	}
 }

@@ -1321,10 +1321,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: 
-        m_Mode: 6
+      - m_Target: {fileID: 1766748397}
+        m_TargetAssemblyTypeName: InGameOptions, Assembly-CSharp
+        m_MethodName: SaveSettings
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3154,6 +3154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15f6a704eb2344d4aaed0136e1fc1a4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedValue: 0
+  musicValue: 1
   playerSpeedSlider: {fileID: 1526249297}
   speedText: {fileID: 1504184366}
   inGameObjects: []
@@ -3161,6 +3163,7 @@ MonoBehaviour:
   m_MyAudioSource: {fileID: 519420033}
   isJoystickOnSprite: {fileID: 21300000, guid: 48e03af7987219448a4764f26becddbd, type: 3}
   isJoystickOffSprite: {fileID: 21300000, guid: 2182669c72161dd40b1d4b57702d6ed4, type: 3}
+  isJoystick: 1
   joystick: {fileID: 111652953}
   leftButton: {fileID: 2013438087}
   rightButton: {fileID: 1354125361}
