@@ -9,17 +9,20 @@ public class PlayerController : MonoBehaviour
 	//[SerializeField] private Animator anim;
 	private Vector2 movementDirection;
 	private Rigidbody2D rb;
+    public InGameOptions InGameOptions;
+    [SerializeField] public static bool isJoystick;
     // Start is called before the first frame update
     void Start()
     {
+        isJoystick = InGameOptions.isJoystick;
         rb = GetComponent<Rigidbody2D>();
         Time.timeScale = 1;
-
     }
 
     // Update is called once per frame
     void Update()
     {
+        isJoystick = InGameOptions.isJoystick;
         processDirection();
         //processAnimation();
         
@@ -30,8 +33,12 @@ public class PlayerController : MonoBehaviour
     }
 
     private void processDirection(){
-    	movementDirection = new Vector2(variableJoystick.Horizontal,variableJoystick.Vertical);
-
+        if(isJoystick){ 
+            movementDirection = new Vector2(variableJoystick.Horizontal,variableJoystick.Vertical);
+        }
+        else{
+            movementDirection = new Vector2(ButtonController.direction,variableJoystick.Vertical);
+        }
     }
 
     private void move(){
@@ -42,4 +49,15 @@ public class PlayerController : MonoBehaviour
     	anim.SetFloat("Horizontal", movementDirection.x);
     	anim.SetFloat("Vertical", movementDirection.y);
     }*/
+
+    #region ---------- Test TouchController ----------
+    
+
+
+
+
+
+    
+
+    #endregion
 }
