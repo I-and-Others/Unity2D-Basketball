@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,18 +6,18 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-    // Start is called before the first frame update
     public int Score;
     public Text ScoreText;
     public AudioSource basketSesi;
-    public GameObject yourButton;
+    public GameObject restartButton;
+    public InGameOptions InGameOptions;
     void Start()
     {
         basketSesi = GetComponent<AudioSource> ();
     }
     // Update is called once per frame
     void Update(){
-        if(Score >= 5){
+        if(Score >= 10){
             YouWin();
         }
         
@@ -25,7 +25,8 @@ public class ScoreManager : MonoBehaviour
     void YouWin(){
         ScoreText.text = "You Win!";
         Time.timeScale = 0f;
-        yourButton.SetActive(true);
+        restartButton.SetActive(true);
+        InGameOptions.inGameObjectsOff();
     }
     private void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.tag =="Ball"){
