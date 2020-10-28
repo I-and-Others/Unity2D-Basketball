@@ -9,7 +9,6 @@ public class ButtonController : MonoBehaviour, IPointerDownHandler, IPointerUpHa
 	public bool buttonPressed;
 	public static float direction;
 	public Button button;
-	public InGameOptions InGameOptions;
     public void OnPointerDown(PointerEventData eventData){
     	button = GetComponent<Button>();
     	if(button.name == "LeftButton"){
@@ -24,11 +23,5 @@ public class ButtonController : MonoBehaviour, IPointerDownHandler, IPointerUpHa
     public void OnPointerUp(PointerEventData eventData){
         buttonPressed = false;
         direction = 0f;        
-    }
-
-    void Start(){
-    	if(InGameOptions.isJoystick == true){
-    		Debug.Log("ButtonControllerda isJoystick değeri:" +InGameOptions.isJoystick);
-    	}
-    }
+    }    
 }
