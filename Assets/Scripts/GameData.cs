@@ -12,11 +12,8 @@ public class GameData
 
 
 	public GameData(InGameOptions inGameSettings){
-		speedValue = inGameSettings.speedValue;
-		musicValue = inGameSettings.musicValue;
+		speedValue = inGameSettings.playerSpeedSlider.value;
+		musicValue = inGameSettings.musicVolumeSlider.value;
 		isJoystick = inGameSettings.isJoystick;
 	}
-
-
-    
 }
