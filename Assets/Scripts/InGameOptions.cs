@@ -43,7 +43,7 @@ public class InGameOptions : MonoBehaviour
 
     public void MainMenu()
     {
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
     }
 
     public void Resume()
@@ -100,11 +100,20 @@ public class InGameOptions : MonoBehaviour
 
     public void LoadSettings(){
 		GameData data = SaveSystem.LoadSettings();
-		playerSpeedSlider.value = data.speedValue;
-		musicVolumeSlider.value = data.musicValue;
-		mainMusic.volume = musicVolumeSlider.value;
-		isJoystick = data.isJoystick;
-		PlayerController.movementSpeed = playerSpeedSlider.value;	
+		if(data == null){
+			playerSpeedSlider.value = 300;
+			musicVolumeSlider.value = 0.5f;
+			mainMusic.volume = musicVolumeSlider.value;
+			isJoystick = true;
+			PlayerController.movementSpeed = playerSpeedSlider.value;
+		}
+		else{
+			playerSpeedSlider.value = data.speedValue;
+			musicVolumeSlider.value = data.musicValue;
+			mainMusic.volume = musicVolumeSlider.value;
+			isJoystick = data.isJoystick;
+			PlayerController.movementSpeed = playerSpeedSlider.value;
+		}	
 	}
 
 	public void SaveSettings(){		

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BallSpawner : MonoBehaviour
 {
-    public GameObject asteroidPrefab;
+    public GameObject balllPrefab;
     public float respawnTime = 1.0f;
     private Vector2 screenBounds;
 
@@ -14,7 +14,7 @@ public class BallSpawner : MonoBehaviour
         StartCoroutine(asteroidWave());
     }
     private void spawnEnemy(){
-        GameObject a = Instantiate(asteroidPrefab) as GameObject;
+        GameObject a = Instantiate(balllPrefab) as GameObject;
         a.transform.position = new Vector2(Random.Range(-screenBounds.x, screenBounds.x),screenBounds.y+2);
     }
     IEnumerator asteroidWave(){
