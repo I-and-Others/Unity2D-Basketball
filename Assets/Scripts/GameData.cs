@@ -9,11 +9,12 @@ public class GameData
 	public float speedValue;
 	public float musicValue;
 	public bool isJoystick;
-
+	public int lastLevelIndex;
 
 	public GameData(InGameOptions inGameSettings){
 		speedValue = inGameSettings.playerSpeedSlider.value;
 		musicValue = inGameSettings.musicVolumeSlider.value;
 		isJoystick = inGameSettings.isJoystick;
+		lastLevelIndex = inGameSettings.currentLevelIndex;
 	}
 }
