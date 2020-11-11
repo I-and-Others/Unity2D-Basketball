@@ -22,12 +22,12 @@ public class InGameOptions : MonoBehaviour
     public GameObject isJoystickButton;
     public Slider musicVolumeSlider;
     public int currentLevelIndex;
-
+    public bool isMenu;
+    public MainMenu mainMenu;
     void Start()
     {
     	//currentLevelIndex = SceneManager.GetActiveScene().buildIndex;    	
-    	LoadSettings();
-
+    	LoadSettings();	
     	if(currentLevelIndex != 0 && currentLevelIndex != SceneManager.GetActiveScene().buildIndex){
     		Application.LoadLevel(currentLevelIndex);
     	}    	
@@ -121,8 +121,7 @@ public class InGameOptions : MonoBehaviour
 			isJoystick = data.isJoystick;
 			PlayerController.movementSpeed = playerSpeedSlider.value;
 			currentLevelIndex = data.lastLevelIndex;
-		}
-		Debug.Log("currentLevelIndex: "+currentLevelIndex);	
+		}		
 	}
 
 	public void SaveSettings(){		
